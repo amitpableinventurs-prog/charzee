@@ -47,7 +47,8 @@
 
 .custom-navbar{
 
-    /* padding:14px 0; */
+    /* slim padding keeps the bigger logo inside --header-height (90px) */
+    padding:3px 0;
 
     transition:.35s;
 
@@ -74,7 +75,7 @@
 
 .navbar-brand img{
 
-    height:70px;
+    height:84px;
 
     transition:.35s;
 
@@ -82,7 +83,7 @@
 
 .header.scrolled .navbar-brand img{
 
-    height:50px;
+    height:60px;
 
 }
 
@@ -317,6 +318,48 @@
     color:var(--primary);
 
     padding-left:8px;
+
+}
+
+/* Desktop: size the menu to its columns and centre it under "Products"
+   instead of stretching it across the whole navbar. `translate` (not
+   `transform`) so it doesn't clash with the dropdown open animation. */
+@media (min-width:992px){
+
+    .custom-navbar .nav-item.dropdown.position-static{
+        position:relative !important;
+    }
+
+    .mega-menu{
+        width:max-content;
+        max-width:calc(100vw - 32px);
+        left:50% !important;
+        right:auto;
+        translate:-50% 0;
+        padding:28px 32px;
+    }
+
+    .mega-menu > .container{
+        width:auto;
+        max-width:none;
+        padding:0;
+    }
+
+    .mega-menu .row{
+        flex-wrap:nowrap;
+        column-gap:44px;
+        margin:0;
+    }
+
+    .mega-menu .row > [class*="col-"]{
+        flex:0 0 auto;
+        width:auto;
+        padding:0;
+    }
+
+    .mega-menu a{
+        white-space:nowrap;
+    }
 
 }
 

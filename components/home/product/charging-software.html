@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://unpkg.com">
     <title>EV Charging Software | OCPP Platform | Charzee</title>
     <meta name="description"
         content="Charzee OCPP Charging Management Software — real-time monitoring, billing, analytics and remote charger management for EV networks.">
@@ -22,7 +24,11 @@
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <!-- Main CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../../assets/css/style.css">
+    <link rel="icon" href="../../../assets/images/favicon.png">
 </head>
 
 <body>
@@ -139,7 +145,7 @@
             <div class="col-lg-6">
                 <div class="product-image-wrapper">
                     <div class="image-glow"></div>
-                    <img src="../../../assets/images/products/ac-charger-banner.webp"
+                    <img fetchpriority="high" src="../../../assets/images/products/ac-charger-banner.webp"
                         alt="Charzee Charging Software Dashboard"
                         class="img-fluid">
                     <div class="floating-card top-card">
@@ -395,7 +401,7 @@
         <div class="row align-items-center g-5 sticky-scroll-section-row">
             <div class="col-lg-6">
                 <div class="why-image sticky-scroll-media">
-                    <img src="../../../assets/images/products/ac-charger-banner.webp"
+                    <img loading="lazy" decoding="async" src="../../../assets/images/products/ac-charger-banner.webp"
                         class="img-fluid" alt="Charzee CMS Platform">
                     <div class="experience-card">
                         <h2>5+</h2>
@@ -515,14 +521,12 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <!-- JS -->
 <script src="../../../assets/js/product-footer.js"></script>
-<script src="../../../assets/js/loader.js"></script>
 <script src="../../../assets/js/navbar.js"></script>
 <script src="../../../assets/js/service-agent.js"></script>
 <script src="../../../assets/js/counter.js"></script>
 <script src="../../../assets/js/animation.js"></script>
 <script src="../../../assets/js/backtotop.js"></script>
 <script src="../../../assets/js/smoothscroll.js"></script>
-<script src="../../../assets/js/main.js"></script>
 
     <script src="../../../assets/js/content-slider.js"></script>
 </body>

@@ -200,7 +200,7 @@ STATS
 
     background: #fff;
 
-    padding: 25px;
+    padding: 20px 14px;
 
     border-radius: 20px;
 
@@ -220,11 +220,16 @@ STATS
 
 .stat-card h2 {
 
-    font-size: 34px;
+    /* One line: "Real-Time", "All-in-One" etc. used to break at the hyphen */
+    font-size: 26px;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
 
     color: #00bcd4;
 
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 
     font-weight: 700;
 
@@ -234,7 +239,27 @@ STATS
 
     color: #666;
 
-    font-size: 15px;
+    font-size: 14px;
+
+}
+
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+
+    .stat-card h2 {
+
+        font-size: 21px;
+
+    }
+
+}
+
+@media (max-width: 1199.98px) {
+
+    .stat-card h2 {
+
+        font-size: 22px;
+
+    }
 
 }
 
@@ -422,6 +447,41 @@ IMAGE
 FLOATING CARDS
 ========================================== */
 
+/* Shrink the wrapper to the picture so the cards below are positioned
+   against the image itself rather than the whole column — otherwise
+   they hang past the image edge and get cut off by the viewport. */
+.product-hero .product-image-wrapper {
+
+    width: fit-content;
+
+    max-width: 100%;
+
+    margin-inline: auto;
+
+}
+
+.product-hero .product-image-wrapper img {
+
+    max-width: 100%;
+
+}
+
+/* Laptop widths: the hero column reaches the window edge, where the fixed
+   social stack sits — keep the image (and its right-hand cards) clear of it. */
+@media (min-width: 992px) and (max-width: 1479.98px) {
+
+    .product-hero .product-image-wrapper {
+
+        max-width: calc(100% - 64px);
+
+        margin-right: 64px;
+
+        margin-left: auto;
+
+    }
+
+}
+
 .floating-card {
 
     position: absolute;
@@ -430,15 +490,21 @@ FLOATING CARDS
 
     align-items: center;
 
-    gap: 15px;
+    gap: 8px;
+
+    max-width: calc(100% - 24px);
 
     background: #fff;
 
-    padding: 18px 22px;
+    padding: 6px 10px;
 
-    border-radius: 18px;
+    border-radius: 12px;
 
-    box-shadow: 0 25px 45px rgba(0, 0, 0, .12);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .12);
+
+    text-align: left;
+
+    white-space: nowrap;
 
     animation: floatCard 4s ease-in-out infinite;
 
@@ -448,11 +514,13 @@ FLOATING CARDS
 
 .floating-card i {
 
-    width: 55px;
+    width: 30px;
 
-    height: 55px;
+    height: 30px;
 
-    border-radius: 15px;
+    flex-shrink: 0;
+
+    border-radius: 8px;
 
     background: linear-gradient(135deg, #d2dad5, #00bcd4);
 
@@ -464,7 +532,7 @@ FLOATING CARDS
 
     justify-content: center;
 
-    font-size: 22px;
+    font-size: 14px;
 
 }
 
@@ -472,45 +540,61 @@ FLOATING CARDS
 
     display: block;
 
-    font-size: 18px;
+    font-size: 13px;
+
+    line-height: 1.3;
 
 }
 
 .floating-card span {
 
+    display: block;
+
     color: #777;
 
-    font-size: 14px;
+    font-size: 11px;
+
+    line-height: 1.3;
 
 }
 
+/* All three cards sit in the corners of the image: top-left,
+   top-right and bottom-right. */
 .top-card {
 
-    top: 40px;
+    top: 16px;
 
-    left: -10px;
+    left: 16px;
 
-}
-
-.bottom-card {
-
-    bottom: 30px;
-
-    right: -10px;
-
-}
-
-.bottom-card-dc {
-
-    bottom: 214px;
-    right: -3px;
 }
 
 .right-card {
 
-    top: 50%;
+    top: 16px;
 
-    right: -40px;
+    right: 16px;
+
+}
+
+/* Below 1200px the image is too narrow for two cards side by side
+   along the top edge, so the top-right one is dropped. */
+@media (max-width: 1199.98px) {
+
+    .right-card {
+
+        display: none;
+
+    }
+
+}
+
+
+.bottom-card,
+.bottom-card-dc {
+
+    bottom: 16px;
+
+    right: 16px;
 
 }
 
@@ -994,7 +1078,7 @@ RESPONSIVE
 
 .dc-why-card h4 {
 
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 700;
     color: #0f172a;
     margin-bottom: 18px;
@@ -1291,3 +1375,259 @@ FINAL CTA
         max-height: none !important;
     }
 }
+
+
+/* ==========================================================
+   SOLAR HERO  (solar-power-plants.html)
+   Light mint hero: large light-weight heading and an icon stats
+   row on the left, the solar globe inside faint rings on the right.
+========================================================== */
+.solar-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 110px 0 80px;
+    background:
+        radial-gradient(circle at 78% 45%, rgba(6, 191, 191, .14), transparent 55%),
+        linear-gradient(135deg, #eafaf6 0%, #f5fbff 55%, #e4f6f1 100%);
+}
+
+.solar-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, .8);
+    color: var(--primary-dark);
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 8px 22px rgba(6, 191, 191, .12);
+}
+
+.solar-hero-title {
+    margin: 26px 0 18px;
+    font-size: 54px;
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -.5px;
+    color: var(--dark);
+}
+
+.solar-hero-title span {
+    display: block;
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.solar-hero-text {
+    max-width: 520px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #5b6472;
+}
+
+.solar-hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.solar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 26px;
+    border: 2px solid var(--primary);
+    border-radius: 50px;
+    background: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: transform .3s ease, box-shadow .3s ease, background .3s ease, color .3s ease;
+}
+
+.solar-btn i {
+    font-size: 18px;
+}
+
+.solar-btn:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(6, 191, 191, .3);
+}
+
+.solar-btn-outline {
+    background: transparent;
+    color: var(--primary-dark);
+}
+
+.solar-btn-outline:hover {
+    background: var(--primary);
+}
+
+/* Icon stats: 2 x 2 grid, thin divider before the right-hand column */
+.solar-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    row-gap: 22px;
+    margin-top: 48px;
+}
+
+.solar-stat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-right: 28px;
+}
+
+.solar-stat:nth-child(even) {
+    padding-left: 28px;
+    padding-right: 0;
+    border-left: 1px solid rgba(17, 24, 39, .12);
+}
+
+.solar-stat i {
+    font-size: 30px;
+    line-height: 1;
+    color: var(--primary);
+}
+
+.solar-stat strong {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.3;
+}
+
+.solar-stat span {
+    display: block;
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.4;
+}
+
+/* Globe with concentric rings */
+.solar-globe {
+    position: relative;
+    width: min(100%, 560px);
+    aspect-ratio: 1;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.solar-globe img {
+    position: relative;
+    z-index: 2;
+    width: 84%;
+    height: auto;
+    filter: drop-shadow(0 30px 50px rgba(6, 80, 80, .22));
+    animation: solarGlobeSpin 120s linear infinite;
+}
+
+.solar-globe-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(6, 191, 191, .22);
+}
+
+.solar-globe-ring.ring-1 { inset: 4%; }
+.solar-globe-ring.ring-2 { inset: -6%; border-color: rgba(6, 191, 191, .14); }
+.solar-globe-ring.ring-3 { inset: -16%; border-color: rgba(6, 191, 191, .08); }
+
+@keyframes solarGlobeSpin {
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width: 1199.98px) {
+    .solar-hero-title { font-size: 46px; }
+}
+
+@media (max-width: 991.98px) {
+    .solar-hero       { padding: 100px 0 60px; text-align: center; }
+    .solar-hero-text  { margin-inline: auto; }
+    .solar-hero-buttons,
+    .solar-hero-stats { justify-content: center; }
+    .solar-globe      { width: min(80%, 460px); }
+}
+
+@media (max-width: 576px) {
+    .solar-hero       { padding: 90px 0 50px; }
+    .solar-hero-title { font-size: 34px; margin-top: 20px; }
+    .solar-hero-text  { font-size: 15px; }
+    .solar-btn        { flex: 1 1 100%; justify-content: center; }
+
+    /* 2 x 2 stats grid on phones */
+    .solar-hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 12px;
+        margin-top: 36px;
+        text-align: left;
+    }
+    .solar-stat,
+    .solar-stat:nth-child(even) {
+        padding: 0;
+        border-left: 0;
+    }
+    .solar-stat i     { font-size: 26px; }
+    .solar-stat strong { font-size: 14px; }
+
+    .solar-globe      { width: 88%; }
+}
+
+
+/* ==========================================
+   PAGE-SPECIFIC BESS HERO IMAGE SLIDER
+========================================== */
+.product-hero-slider{min-height:720px;padding:0;display:flex;align-items:center;overflow:hidden;background:#0b1720;isolation:isolate}
+.product-slider-background,.product-slider-slide,.product-slider-overlay{position:absolute;inset:0}
+.product-slider-background{z-index:-3}
+.product-slider-slide{background-position:center;background-size:cover;background-repeat:no-repeat;opacity:0;transform:scale(1.04);transition:opacity .9s ease,transform 6s ease}
+.product-slider-slide.active{opacity:1;transform:scale(1)}
+.product-slider-overlay{z-index:-2;background:linear-gradient(90deg,rgba(5,16,24,.88) 0%,rgba(5,16,24,.68) 45%,rgba(5,16,24,.20) 100%),linear-gradient(0deg,rgba(5,16,24,.35),transparent 45%)}
+.product-hero-slider .hero-shape{z-index:-1}
+.product-slider-content{max-width:820px;padding:120px 0 110px}
+.product-hero-slider .product-badge{color:#00bcd4;background:rgba(255,255,255,.95)}
+.product-hero-slider .product-title{color:#fff;font-size:clamp(44px,5vw,70px);margin:28px 0 22px;text-shadow:0 5px 30px rgba(0,0,0,.25)}
+.product-hero-slider .product-title span{background:linear-gradient(90deg,#fff,#00d5e8);-webkit-background-clip:text;background-clip:text}
+.product-hero-slider .product-description{color:rgba(255,255,255,.88);font-size:18px;max-width:720px}
+.product-hero-slider .hero-buttons{margin-top:34px}
+.product-hero-slider .btn-outline-light{border-width:2px}
+.product-slider-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.product-slider-meta span{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border:1px solid rgba(255,255,255,.25);border-radius:50px;background:rgba(255,255,255,.10);color:#fff;backdrop-filter:blur(10px);font-size:13px}
+.product-slider-meta i{color:#00d5e8}
+.product-slider-nav{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);display:flex;gap:10px;z-index:5}
+.product-slider-dot{width:34px;height:4px;border:0;padding:0;border-radius:10px;background:rgba(255,255,255,.45);transition:.3s ease;cursor:pointer}
+.product-slider-dot.active{width:60px;background:#00d5e8}
+.product-slider-counter{position:absolute;right:5%;bottom:32px;color:rgba(255,255,255,.8);font-size:14px;letter-spacing:2px;z-index:5}
+.product-slider-counter #productSliderCurrent{color:#00d5e8;font-size:20px;font-weight:700}
+@media(max-width:768px){.product-hero-slider{min-height:650px}.product-slider-content{padding:105px 0 95px}.product-hero-slider .product-title{font-size:40px}.product-hero-slider .product-description{font-size:16px}.product-slider-meta span:nth-child(n+3){display:none}.product-slider-counter{display:none}.product-slider-overlay{background:linear-gradient(90deg,rgba(5,16,24,.90),rgba(5,16,24,.55)),linear-gradient(0deg,rgba(5,16,24,.45),transparent)}}
+
+/* ==========================================
+   SECOND BESS PROJECT / IMAGE SLIDER
+========================================== */
+.bess-project-slider-section{padding:95px 0 15px;background:#f7fafb;overflow:hidden}
+.bess-slider-eyebrow{display:inline-block;font-size:12px;font-weight:800;letter-spacing:2px;color:#00a9bd;margin-bottom:12px}
+.bess-project-slider{position:relative;max-width:1240px;height:540px;margin:0 auto;padding:0 28px;}
+.bess-project-track{height:100%;position:relative;overflow:hidden;border-radius:26px;box-shadow:0 22px 60px rgba(9,31,43,.16)}
+.bess-project-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transform:scale(1.04);transition:opacity .75s ease,transform 5.5s ease,visibility .75s;overflow:hidden}
+.bess-project-slide.active{opacity:1;visibility:visible;transform:scale(1)}
+.bess-project-slide img{width:100%;height:100%;display:block;object-fit:cover}
+.bess-project-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,18,27,.86) 0%,rgba(5,18,27,.58) 42%,rgba(5,18,27,.12) 100%)}
+.bess-project-copy{position:absolute;left:7%;bottom:13%;max-width:610px;color:#fff}
+.bess-project-number{display:inline-flex;width:48px;height:48px;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.35);border-radius:50%;font-weight:800;margin-bottom:18px;background:rgba(255,255,255,.1);backdrop-filter:blur(8px)}
+.bess-project-copy h3{font-size:clamp(30px,4vw,52px);line-height:1.08;margin:0 0 15px;color:#fff}
+.bess-project-copy p{font-size:17px;line-height:1.65;color:rgba(255,255,255,.86);margin:0;max-width:560px}
+.bess-project-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:50px;height:50px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:rgba(7,22,31,.58);color:#fff;display:grid;place-items:center;font-size:20px;backdrop-filter:blur(10px);cursor:pointer;transition:.25s ease}
+.bess-project-arrow:hover{background:#fff;color:#00a9bd;transform:translateY(-50%) scale(1.06)}
+.bess-project-arrow.prev{left:48px}.bess-project-arrow.next{right:48px}
+.bess-project-dots{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:6;display:flex;gap:9px}
+.bess-project-dot{width:30px;height:4px;border:0;border-radius:10px;padding:0;background:rgba(255,255,255,.5);cursor:pointer;transition:.3s ease}
+.bess-project-dot.active{width:55px;background:#00d5e8}
+@media(max-width:768px){.bess-project-slider-section{padding:70px 0 80px}.bess-project-slider{height:500px;padding:0 14px}.bess-project-track{border-radius:18px}.bess-project-copy{left:8%;right:8%;bottom:14%}.bess-project-copy h3{font-size:34px}.bess-project-copy p{font-size:15px}.bess-project-arrow{width:42px;height:42px}.bess-project-arrow.prev{left:28px}.bess-project-arrow.next{right:28px}.bess-project-dots{bottom:20px}}
+

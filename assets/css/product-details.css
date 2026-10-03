@@ -179,7 +179,7 @@ PRODUCT DETAILS
 ==========================================*/
 
 .applications{
-    padding:100px 0;
+    padding:10px 0;
     background:#f8fbff;
 }
 
@@ -236,10 +236,8 @@ PRODUCT DETAILS
 }
 
 .application-card p{
-
     color:#6c757d;
     line-height:1.8;
-
 }
 
 /*==========================================
@@ -247,12 +245,11 @@ SPECIFICATIONS
 ==========================================*/
 
 .product-specifications{
-    padding:100px 0;
+    padding:10px 0;
     background:#f8fafc;
 }
 
 .spec-card{
-
     background:#fff;
     border-radius:20px;
     padding:35px 30px;
@@ -367,7 +364,7 @@ KEY FEATURES
 
     background:#fff;
 
-    padding:40px 30px;
+    padding:15px 15px;
 
     border-radius:24px;
 
@@ -463,7 +460,7 @@ KEY FEATURES
 
 .feature-card h4{
 
-    font-size:30px;
+    font-size:22px;
 
     font-weight:700;
 
@@ -615,6 +612,25 @@ WHY CHOOSE CHARZEE
 
     color:#666;
 
+}
+
+/* Image fills its column (cropped to fit) */
+.why-image-cover img{
+    display:block;
+    width:100%;
+    height:420px;
+    object-fit:cover;
+}
+
+@media (min-width:992px){
+    .why-image-cover{
+        height:100%;
+        min-height:480px;
+    }
+
+    .why-image-cover img{
+        height:100%;
+    }
 }
 
 .why-list{
@@ -1284,7 +1300,7 @@ font-size:28px;
 @media(max-width:991px){
 
 .feature-card{
-    padding:35px 25px;
+    padding:15px 15px;
 }
 
 }
@@ -1292,7 +1308,7 @@ font-size:28px;
 @media(max-width:768px){
 
 .feature-card{
-    padding:30px 22px;
+    padding:15px 15px;
 }
 
 .feature-icon{
@@ -1395,9 +1411,10 @@ font-size:28px;
     scroll-snap-type:x mandatory;
     scroll-behavior:smooth;
     scrollbar-width:none;
-    margin-left:0 !important;
-    margin-right:0 !important;
-    padding:0 2px 10px !important;
+    /* Room for card shadows + hover lift (overflow clips them otherwise) */
+    margin:-24px -12px -40px !important;
+    padding:24px 12px 50px !important;
+    scroll-padding-inline:12px;
     gap:24px !important;
 }
 
@@ -1484,8 +1501,10 @@ font-size:28px;
     }
 
     .content-slider-item{
-        flex-basis:100% !important;
+        /* Phones: one card per view */
+        flex:0 0 100% !important;
         width:100% !important;
+        max-width:100% !important;
     }
 
     .content-slider-controls{
@@ -1523,3 +1542,31 @@ font-size:28px;
 .dc-download-card .btn{position:relative;z-index:1;border-radius:14px;padding:14px 18px;font-weight:700;transition:transform .3s ease,box-shadow .3s ease;}
 .dc-download-card .btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(13,110,253,.18);}
 @media(max-width:575px){.dc-download-card{padding:24px;border-radius:22px}.dc-download-card h3{font-size:22px}}
+
+/* ==========================================
+   DOWNLOAD CARDS — compact headings (all product pages)
+========================================== */
+.download-card h3,
+.download-card-solar h3,
+.dc-download-card h3{
+    font-size:22px;
+    line-height:1.3;
+    margin:22px 0 18px;
+}
+
+.download-card h3{
+    margin:0 0 10px;
+}
+
+.download-card-solar .btn,
+.dc-download-card .btn{
+    font-size:16px;
+}
+
+@media (max-width:575px){
+    .download-card h3,
+    .download-card-solar h3,
+    .dc-download-card h3{
+        font-size:20px;
+    }
+}

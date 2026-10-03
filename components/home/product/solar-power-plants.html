@@ -4,13 +4,17 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://unpkg.com">
 <title>Solar Power Plants | Charzee</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="../../../assets/css/style.css" rel="stylesheet"/>
-<link href="../../../assets/css/product.css" rel="stylesheet"/>
-<link href="../../../assets/css/product-details.css" rel="stylesheet"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
 </head>
 <body>
 <a class="btn btn-light product-page-back" href="../../../products.html">
@@ -42,16 +46,16 @@
 </div>
 <div class="hero-stats">
 <div class="stat-card">
-<h2>70%</h2>
-<span>On-Grid Plants</span>
+<h2>kW–MW</h2>
+<span>Scalable Capacity</span>
 </div>
 <div class="stat-card">
-<h2>15%</h2>
-<span>Hybrid Plants</span>
+<h2>3</h2>
+<span>Plant Types</span>
 </div>
 <div class="stat-card">
-<h2>15%</h2>
-<span>Off-Grid Plants</span>
+<h2>24/7</h2>
+<span>Remote Monitoring</span>
 </div>
 </div>
 <div class="row g-3 mt-4">
@@ -94,14 +98,14 @@
 </div>
 <div class="trust-badges">
 <span><i class="bi bi-patch-check-fill"></i>Certified Components</span>
-<span><i class="bi bi-leaf-fill"></i>Green Energy</span>
+<span><i class="bi bi-tree-fill"></i>Green Energy</span>
 <span><i class="bi bi-cloud-check-fill"></i>Cloud Monitoring</span>
 </div>
 </div>
 <div class="col-lg-6">
 <div class="product-image-wrapper">
 <div class="image-glow"></div>
-<img alt="Solar power plant" class="img-fluid" src="../../../assets/images/products/solar-plant.png"/>
+<img fetchpriority="high" alt="Solar power plant" class="img-fluid" src="../../../assets/images/products/solar-power-plant.webp"/>
 <div class="floating-card top-card">
 <i class="bi bi-sun-fill"></i>
 <div>
@@ -109,13 +113,7 @@
 <span>Efficient Generation</span>
 </div>
 </div>
-<div class="floating-card bottom-card">
-<i class="bi bi-battery-full"></i>
-<div>
-<strong>BESS Ready</strong>
-<span>Energy Storage</span>
-</div>
-</div>
+
 <div class="floating-card right-card">
 <i class="bi bi-speedometer2"></i>
 <div>
@@ -142,21 +140,21 @@
 <div class="spec-card">
 <i class="bi bi-diagram-3-fill"></i>
 <h5>On-Grid</h5>
-<p>70% of Deployments</p>
+<p>Grid-connected with net metering. No batteries needed, lowest cost per unit and the fastest payback.</p>
 </div>
 </div>
 <div class="col-lg-4 col-md-6">
 <div class="spec-card">
 <i class="bi bi-battery-charging"></i>
 <h5>Hybrid</h5>
-<p>15% of Deployments</p>
+<p>Solar, battery and grid working together. Cuts power bills and keeps critical loads running during outages.</p>
 </div>
 </div>
 <div class="col-lg-4 col-md-6">
 <div class="spec-card">
 <i class="bi bi-plug-fill"></i>
 <h5>Off-Grid</h5>
-<p>15% of Deployments</p>
+<p>Battery-backed, fully independent power for remote sites with no grid or an unreliable supply.</p>
 </div>
 </div>
 <div class="col-lg-4 col-md-6">
@@ -307,7 +305,7 @@
 <tbody>
 <tr>
 <th>Plant Type</th>
-<td>On-Grid (70%), Hybrid (15%) or Off-Grid (15%) solar power plant</td>
+<td>On-Grid (net metering), Hybrid (solar + battery + grid) or Off-Grid (battery-backed, grid-independent) solar power plant</td>
 </tr>
 <tr>
 <th>Plant Capacity</th>
@@ -379,7 +377,7 @@
 </div>
 <div class="col-lg-4 col-md-6">
 <div class="dc-why-card">
-<div class="dc-why-icon"><i class="bi bi-leaf-fill"></i></div>
+<div class="dc-why-icon"><i class="bi bi-tree-fill"></i></div>
 <h4>Cleaner Operations</h4>
 <p>Support sustainability goals with reliable renewable generation.</p>
 </div>
@@ -466,10 +464,11 @@
 </h2>
 <div class="accordion-collapse collapse show" data-bs-parent="#plantFaqAccordion" id="plantFaq1">
 <div class="accordion-body">
-                            On-Grid plants (around 70% of our deployments) export/import
-                            power with the utility grid. Hybrid plants (around 15%) combine
-                            solar, battery storage and grid supply. Off-Grid plants (around 15%)
-                            operate independently using solar and battery storage only.
+                            On-Grid plants export and import power with the utility grid through
+                            net metering, so no batteries are needed. Hybrid plants combine
+                            solar, battery storage and grid supply to keep critical loads running
+                            during outages. Off-Grid plants operate independently using solar and
+                            battery storage only, ideal for remote sites without a reliable grid.
                         </div>
 </div>
 </div>
@@ -535,6 +534,7 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="../../../assets/js/service-agent.js"></script>
 <script src="../../../assets/js/product-footer.js"></script>
+    <script src="../../../assets/js/backtotop.js"></script>
 <script src="../../../assets/js/content-slider.js"></script>
 </body>
 </html>

@@ -63,8 +63,8 @@
 
     height:100%;
 
-    /* show the full image without cropping */
-    background-size:contain;
+    /* fill the whole hero area edge to edge */
+    background-size:cover;
 
     background-position:center;
 

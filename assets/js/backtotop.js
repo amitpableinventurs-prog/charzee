@@ -1,20 +1,27 @@
 /* ==========================================
    BACK TO TOP
+   The button lives in the footer component, which is fetched after
+   DOMContentLoaded — so look it up on every scroll and use a delegated
+   click handler instead of binding to it once at startup.
 ========================================== */
 
 function backToTop(){
 
-const btn=document.querySelector(".back-to-top");
+if(window.__backToTopReady) return;
 
-if(!btn) return;
+window.__backToTopReady=true;
 
 window.addEventListener("scroll",()=>{
 
-btn.classList.toggle("show",window.scrollY>400);
+const btn=document.querySelector(".back-to-top");
 
-});
+if(btn) btn.classList.toggle("show",window.scrollY>400);
 
-btn.addEventListener("click",()=>{
+},{passive:true});
+
+document.addEventListener("click",e=>{
+
+if(!e.target.closest(".back-to-top")) return;
 
 window.scrollTo({
 
@@ -27,3 +34,5 @@ behavior:"smooth"
 });
 
 }
+
+backToTop();

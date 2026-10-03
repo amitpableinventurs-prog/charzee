@@ -171,9 +171,9 @@ body {
 @media (max-width: 768px) {
 
     /* --- 🧭 Header --- */
-    .header               { padding: 14px 0; }
+    .header               { padding: 10px 0; }
     .header-space         { height: 75px; }
-    .navbar-brand img     { height: 46px; }
+    .navbar-brand img     { height: 52px; }
 
     /* --- 🦸 Hero --- */
     .hero                 { text-align: center; min-height: 90vh; padding-top: 75px; }
@@ -301,7 +301,7 @@ body {
     .stat-box h2          { font-size: 44px; }
 
     /* --- 🔝 Back to top --- */
-    .back-to-top          { right: 18px; bottom: 18px; width: 48px; height: 48px; }
+    .back-to-top          { right: 34px; bottom: 92px; width: 42px; height: 42px; }
     .social-toggle        { bottom: 76px; }
 }
 
@@ -311,7 +311,7 @@ body {
 @media (max-width: 576px) {
 
     /* --- 🧭 Header --- */
-    .navbar-brand img     { height: 42px; }
+    .navbar-brand img     { height: 48px; }
     .header-space         { height: 70px; }
 
     /* --- 🦸 Hero --- */
@@ -677,4 +677,371 @@ body {
         width: auto;
         max-width: 100%;
     }
+}
+
+/* ==========================================
+   🧩 14.  COMPONENT: PRODUCT CATALOG CARDS  (products-full.html)
+   These styles previously lived only inside components/home/products.html,
+   so products.html rendered badges and buttons unstyled. Scoped to
+   #productsFull so the home page cards and the product-detail hero
+   title are left untouched.
+========================================== */
+#productsFull .product-card {
+    background          : var(--clr-light);
+    border-radius       : 20px;
+    overflow            : hidden;
+    box-shadow          : 0 4px 16px rgba(0, 0, 0, .06);
+    border              : 1px solid rgba(0, 0, 0, .03);
+    display             : flex;
+    flex-direction      : column;
+}
+
+#productsFull .product-card .product-image {
+    position            : relative;
+    overflow            : hidden;
+    height              : 220px;
+    background          : #f5f5f5;
+}
+
+#productsFull .product-card .product-image img {
+    width               : 100%;
+    height              : 100%;
+    object-fit          : cover;
+}
+
+#productsFull .product-badge-tag {
+    position            : absolute;
+    top                 : 12px;
+    right               : 12px;
+    z-index             : 5;
+    background          : linear-gradient(135deg, #06BFBF 0%, #009999 100%);
+    color               : var(--clr-light);
+    padding             : 6px 14px;
+    border-radius       : 30px;
+    font-size           : 12px;
+    font-weight         : 700;
+    text-transform      : uppercase;
+    letter-spacing      : .5px;
+}
+
+#productsFull .product-badge-tag.commercial { background: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%); }
+#productsFull .product-badge-tag.green      { background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%); }
+#productsFull .product-badge-tag.orange     { background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); }
+#productsFull .product-badge-tag.purple     { background: linear-gradient(135deg, #A855F7 0%, #9333EA 100%); }
+
+#productsFull .product-card .product-content {
+    padding             : 24px;
+    flex                : 1;
+    display             : flex;
+    flex-direction      : column;
+}
+
+#productsFull .product-card .product-icon {
+    width               : 50px;
+    height              : 50px;
+    border-radius       : 12px;
+    display             : flex;
+    align-items         : center;
+    justify-content     : center;
+    font-size           : 24px;
+    color               : var(--clr-primary);
+    background          : linear-gradient(135deg, rgba(6, 191, 191, .1) 0%, rgba(0, 153, 153, .05) 100%);
+    margin-bottom       : 12px;
+}
+
+#productsFull .product-card .product-title {
+    font-size           : 18px;
+    font-weight         : 700;
+    color               : var(--clr-dark);
+    margin              : 0 0 10px;
+    line-height         : 1.3;
+}
+
+#productsFull .product-card .product-desc {
+    font-size           : 14px;
+    color               : #6B7280;
+    margin              : 0 0 14px;
+    line-height         : 1.5;
+    flex-grow           : 1;
+}
+
+#productsFull .btn-product {
+    padding             : 12px 24px !important;
+    border-radius       : 50px !important;
+    background          : linear-gradient(135deg, #06BFBF 0%, #009999 100%) !important;
+    color               : var(--clr-light) !important;
+    border              : none !important;
+    font-weight         : 600 !important;
+    font-size           : 14px !important;
+    box-shadow          : 0 6px 16px rgba(6, 191, 191, .25) !important;
+    display             : inline-flex !important;
+    align-items         : center !important;
+    justify-content     : center !important;
+    margin-bottom       : 0 !important;
+}
+
+#productsFull .btn-product:hover {
+    transform           : translateY(-3px);
+    color               : var(--clr-light) !important;
+}
+
+@media (max-width: 768px) {
+    #productsFull .product-card .product-image   { height: 190px; }
+    #productsFull .product-card .product-content { padding: 20px; }
+}
+
+/* ==========================================
+   📱 15.  MOBILE LAYOUT FIXES
+========================================== */
+
+/* --- ↔️ No sideways scrolling ---
+   html{overflow-x:hidden} alone doesn't stop mobile browsers from widening
+   the layout when AOS fade-left/right items or blurred hero shapes poke
+   past the edge. `clip` (unlike `hidden`) doesn't create a scroll
+   container, so position:sticky keeps working on desktop. */
+body {
+    overflow-x          : clip;
+}
+
+.product-hero {
+    overflow-x          : clip;
+}
+
+/* --- 🧭 Collapsed navbar: the desktop 39px gap between links made the
+   mobile menu very tall and pushed "Contact" into the call button --- */
+@media (max-width: 991.98px) {
+    .navbar-nav           { gap: 0; }
+    .custom-navbar .navbar-collapse > .btn { margin-top: 14px; }
+}
+
+@media (max-width: 768px) {
+
+    /* --- 🦸 Inner page heroes: don't fill the whole first screen ---
+       (.hero{min-height:95vh} further up otherwise wins over .hero-inner) */
+    .hero.hero-inner      { min-height: auto; }
+
+    /* Blog post hero meta row (date · read time · tag) */
+    .hero-inner .d-flex.gap-4 {
+        flex-wrap       : wrap;
+        column-gap      : 18px !important;
+        row-gap         : 6px !important;
+    }
+    .hero-inner .d-flex.gap-4 > span { white-space: nowrap; }
+
+    /* --- 🦶 Footer --- */
+    /* Link lists: two columns instead of one very long centred list */
+    .footer-links {
+        display         : grid;
+        grid-template-columns : repeat(2, minmax(0, 1fr));
+        column-gap      : 16px;
+    }
+    .footer-links li      { margin-bottom: 12px; }
+
+    /* Contact rows: one left-aligned block, centred as a whole, so the
+       icons line up instead of zig-zagging with each line's length */
+    .footer-contact {
+        display         : inline-flex;
+        flex-direction  : column;
+        text-align      : left;
+        max-width       : 100%;
+    }
+    .footer-contact li {
+        justify-content : flex-start;
+        align-items     : center;
+        margin-bottom   : 16px;
+    }
+
+    /* Bottom bar links: wrap cleanly without dangling "|" separators */
+    .footer-bottom .col-lg-6:last-child {
+        display         : flex;
+        flex-wrap       : wrap;
+        justify-content : center;
+        gap             : 6px 18px;
+    }
+    .footer-bottom .col-lg-6:last-child > .mx-2 { display: none; }
+
+    /* Room below the last line so the floating buttons don't cover it */
+    .footer               { padding-bottom: 90px; }
+
+    /* --- 🛒 Product detail hero --- */
+    .product-hero .hero-stats {
+        flex-direction  : row;
+        flex-wrap       : nowrap;
+        gap             : 10px;
+        margin-top      : 32px;
+    }
+    .product-hero .stat-card {
+        min-width       : 0;
+        padding         : 16px 8px;
+        border-radius   : 16px;
+    }
+    .product-hero .stat-card h2   { font-size: 20px; margin-bottom: 4px; }
+    .product-hero .stat-card span { font-size: 12px; }
+
+    .image-glow {
+        width           : 80%;
+        height          : auto;
+        aspect-ratio    : 1;
+    }
+
+    /* "500+ / 99% / 24×7" counter row */
+    .why-counter          { padding: 16px 6px; border-radius: 16px; }
+    .why-counter h3       { font-size: 22px; margin-bottom: 4px; }
+    .why-counter span     { font-size: 12px; }
+}
+
+@media (max-width: 767.98px) {
+
+    /* --- 🎈 Floating buttons ---
+       Chat stays bottom-right, back-to-top moves bottom-left (they used to
+       overlap), and the social stack shrinks to WhatsApp only so it no
+       longer covers page content. Facebook, Instagram and LinkedIn are
+       still in the footer. */
+    .back-to-top {
+        left            : 16px;
+        right           : auto;
+        bottom          : 20px;
+        width           : 46px;
+        height          : 46px;
+    }
+
+    .social-toggle {
+        right           : 23px;
+        bottom          : 86px;
+    }
+    .social-toggle-menu {
+        padding         : 0;
+        background      : none;
+        box-shadow      : none;
+        backdrop-filter : none;
+    }
+    .social-toggle-link:not(.whatsapp) { display: none; }
+    .social-toggle-link   { width: 48px; height: 48px; font-size: 22px; }
+}
+
+@media (max-width: 576px) {
+
+    /* Product hero stats: two per row so long titles ("Submersible",
+       "7.4kw - 22kw") stay on one line instead of overflowing */
+    .product-hero .hero-stats   { flex-wrap: wrap; }
+    .product-hero .stat-card    { flex: 1 1 calc(50% - 5px); }
+    .product-hero .stat-card h2 { font-size: 18px; }
+
+    /* Product hero highlight tiles (2 per row) */
+    .hero-highlight {
+        gap             : 10px;
+        padding         : 12px;
+        border-radius   : 14px;
+    }
+    .hero-highlight i {
+        width           : 40px;
+        height          : 40px;
+        border-radius   : 12px;
+        font-size       : 18px;
+        flex-shrink     : 0;
+    }
+    .hero-highlight h6    { font-size: 14px; }
+    .hero-highlight small { font-size: 12px; line-height: 1.3; display: block; }
+}
+
+/* ==========================================
+   🧩 16.  PAGES: LEGAL & SITEMAP
+   (privacy-policy.html, terms.html, sitemap.html —
+   legal pages reuse the .blog-content article styles)
+========================================== */
+.legal-updated {
+    display             : inline-flex;
+    align-items         : center;
+    padding             : 6px 14px;
+    border-radius       : 50px;
+    background          : rgba(6, 191, 191, .1);
+    color               : var(--clr-primary-dark) !important;
+    font-size           : 14px !important;
+    font-weight         : 600;
+}
+
+.legal-page .blog-content a {
+    color               : var(--clr-primary-dark);
+    font-weight         : 600;
+    word-break          : break-word;
+}
+
+.legal-page .blog-content h2:first-of-type { margin-top: 30px; }
+
+.sitemap-section {
+    background          : var(--clr-off-white);
+}
+
+.sitemap-card {
+    height              : 100%;
+    background          : var(--clr-light);
+    border-radius       : 20px;
+    padding             : 28px 24px;
+    box-shadow          : var(--shadow-card);
+}
+
+.sitemap-card-head {
+    display             : flex;
+    align-items         : center;
+    gap                 : 12px;
+    margin-bottom       : 18px;
+    padding-bottom      : 16px;
+    border-bottom       : 1px solid rgba(17, 24, 39, .08);
+}
+
+.sitemap-card-head i {
+    width               : 44px;
+    height              : 44px;
+    border-radius       : 12px;
+    display             : flex;
+    align-items         : center;
+    justify-content     : center;
+    flex-shrink         : 0;
+    font-size           : 20px;
+    color               : var(--clr-light);
+    background          : var(--gradient-primary);
+}
+
+.sitemap-card-head h2 {
+    margin              : 0;
+    font-size           : 20px;
+    font-weight         : 700;
+    color               : var(--clr-dark);
+}
+
+.sitemap-links {
+    list-style          : none;
+    padding             : 0;
+    margin              : 0;
+}
+
+.sitemap-links a {
+    display             : flex;
+    align-items         : flex-start;
+    gap                 : 8px;
+    padding             : 8px 0;
+    color               : #4B5563;
+    font-size           : 15px;
+    line-height         : 1.5;
+    text-decoration     : none;
+    transition          : color var(--transition-smooth);
+}
+
+.sitemap-links a::before {
+    content             : '\F285';
+    font-family         : 'bootstrap-icons';
+    font-size           : 12px;
+    line-height         : 1.5rem;
+    color               : var(--clr-primary);
+    flex-shrink         : 0;
+}
+
+.sitemap-links a:hover {
+    color               : var(--clr-primary-dark);
+}
+
+@media (max-width: 576px) {
+    .sitemap-card         { padding: 22px 18px; }
+    .legal-page .blog-content h2 { font-size: 21px; margin: 32px 0 14px; }
+    .blog-highlight       { padding: 18px 16px; }
 }

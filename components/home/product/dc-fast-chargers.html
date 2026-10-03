@@ -4,6 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://unpkg.com">
 <title>AC EV Chargers | Charzee</title>
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
@@ -12,7 +14,11 @@
 <!-- AOS -->
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 <!-- Main CSS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="../../../assets/css/style.css" rel="stylesheet"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
 </head>
 <body>
 <a class="btn btn-light product-page-back" href="../../../products.html">
@@ -69,7 +75,7 @@
 <!-- Stats -->
 <div class="hero-stats">
 <div class="stat-card">
-<h2>480kW</h2>
+<h2>360KW</h2>
 <span>Maximum Output</span>
 </div>
 <div class="stat-card">
@@ -146,7 +152,7 @@
 <div class="col-lg-6">
 <div class="product-image-wrapper">
 <div class="image-glow"></div>
-<img alt="DC Fast Charger" class="img-fluid" src="../../../assets/images/products/DCFastChargerEV.jpeg"/>
+<img fetchpriority="high" alt="Charzee 240kW DC fast charger at a highway charging station" class="img-fluid" src="../../../assets/images/products/dc-charger1.webp"/>
 <div class="floating-card top-card">
 <i class="bi bi-lightning-charge-fill"></i>
 <div>
@@ -199,7 +205,7 @@
 <div class="spec-card">
 <i class="bi bi-lightning-charge-fill"></i>
 <h5>Power Output</h5>
-<p>30kW – 480kW</p>
+<p>30kW – 360kW</p>
 </div>
 </div>
 <!-- Specification 2 -->
@@ -215,7 +221,7 @@
 <div class="spec-card">
 <i class="bi bi-ev-front-fill"></i>
 <h5>Connector Type</h5>
-<p>CCS2 / CHAdeMO (Optional)</p>
+<p>CCS2 / ChadeMO (Optional)</p>
 </div>
 </div>
 <!-- Specification 4 -->
@@ -564,7 +570,7 @@
 </tr>
 <tr>
 <th>Input Voltage</th>
-<td>3-Ph 400V (+/-10%), Three Phase</td>
+<td>3-Ph 415V (+/-10%), Three Phase</td>
 </tr>
 <tr>
 <th>Output Voltage</th>
@@ -592,7 +598,7 @@
 </tr>
 <tr>
 <th>Display</th>
-<td>7" Touch Screen Display</td>
+<td>7/10 Touch Screen Display</td>
 </tr>
 <tr>
 <th>Protection Rating</th>
@@ -1136,6 +1142,7 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script src="../../../assets/js/service-agent.js"></script>
 <script src="../../../assets/js/product-footer.js"></script>
+    <script src="../../../assets/js/backtotop.js"></script>
 <script src="../../../assets/js/content-slider.js"></script>
 </body>
 </html>
